@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: calc(100% - 400px); }
+.legend { 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  background-color: #fff;
+  border-left: 2px solid #000;
+  padding: 20px;
+  overflow-y: auto;
+}
+.legend-item { margin-bottom: 10px; }
+.legend-title { font-weight: bold; }
+.legend-color { width: 20px; height: 20px; display: inline-block; margin-right: 5px; }
+.title { font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="legend">
+  <div class="title">Public Amenities and Population Density in Hong Kong</div>
+  <div class="legend-item">
+    <div class="legend-title">Public Amenities:</div>
+    <div><span class="legend-color" style="background-color: #24a8e5;"></span> Public Water Dispensers</div>
+    <div><span class="legend-color" style="background-color: #f901aa;"></span> Public Basketball Courts</div>
+    <div><span class="legend-color" style="background-color: #f7e73b;"></span> Public Playgrounds</div>
+    <div><span class="legend-color" style="background-color: #23e515;"></span> Public Parks, Zoos, and Gardens</div>
+  </div>
+  <div class="legend-item">
+    <div class="legend-title">Population Density:</div>
+    <div><span class="legend-color" style="background-color: #ffffcc;"></span> Islands: 1021 </div>
+    <div><span class="legend-color" style="background-color: #fffe99;"></span> North: 2269 </div>
+    <div><span class="legend-color" style="background-color: #fffd66;"></span> Tai Po: 2325 </div>
+    <div><span class="legend-color" style="background-color: #fffc33;"></span> Sai Kung: 3771 </div>
+    <div><span class="legend-color" style="background-color: #fffb00;"></span> Yuen Long: 4825 </div>
+    <div><span class="legend-color" style="background-color: #ffea00;"></span> Tsuen Wan: 5168 </div>
+    <div><span class="legend-color" style="background-color: #ffd800;"></span> Tuen Mun: 5908 </div>
+    <div><span class="legend-color" style="background-color: #ffc400;"></span> Southern: 6779</div>
+    <div><span class="legend-color" style="background-color: #ffb100;"></span> Sha Tin: 10082 </div>
+    <div><span class="legend-color" style="background-color: #ff9e00;"></span> Wan Chai: 15791 </div>
+    <div><span class="legend-color" style="background-color: #ff8b00;"></span> Central & Western: 18808 </div>
+    <div><span class="legend-color" style="background-color: #ff7800;"></span> Kwai Tsing: 21246 </div>
+    <div><span class="legend-color" style="background-color: #ff6600;"></span> Eastern: 29440 </div>
+    <div><span class="legend-color" style="background-color: #ff5500;"></span> Kowloon City: 40994 </div>
+    <div><span class="legend-color" style="background-color: #ff4400;"></span> Wong Tai Sin: 43730 </div>
+    <div><span class="legend-color" style="background-color: #ff3300;"></span> Yau Tsim Mong: 44458</div>
+    <div><span class="legend-color" style="background-color: #ff2200;"></span> Sham Shui Po: 46067 </div>
+    <div><span class="legend-color" style="background-color: #ff2200;"></span> Kwun Tong: 59704 </div>
+  </div>
+</div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZWNob25nODIwIiwiYSI6ImNsdGd1b205czE1YWQyaW45NWh2azRrbTYifQ.p-fYR5DyS6p0j8cfbF364A';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/echong820/clu9bwjah00cu01q59wdi0uex',
+    center: [114.16, 22.28],
+    zoom: 10,
+    scrollZoom: false 
+  });
+  
+  const zoomControls = new mapboxgl.NavigationControl();
+  map.addControl(zoomControls, 'top-left');
+</script>
+</body>
+</html>
